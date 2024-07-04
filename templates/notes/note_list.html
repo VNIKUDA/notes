@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-3">
+    <h1 class="mb-3">Note list</h1>
+    <ul class="list-group">
+    {% for note in notes %}
+        <li class="list-group-item">
+           <a href="{% url 'note-detail' note.pk %}">{{note.title}}</a> 
+        </li>
+    {% empty %}
+        <li class="list-group-item">
+            No notes have been found.
+        </li>
+    {% endfor %} 
+    </ul>
+    <a href="{% url 'note-create' %}" class="btn btn-primary mt-3">Create note</a>
+    
+</div>
+{% endblock %}
